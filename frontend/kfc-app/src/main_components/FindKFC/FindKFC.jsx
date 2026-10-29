@@ -208,7 +208,7 @@ const FindKFC = () => {
             .then((e) => e.json())
             .then((d) => (
                 setAddress(d.display_name),
-                setTextL(d)
+                setTextL(d.display_name)
                 // ,
                 // console.log(address)
             ))
@@ -216,9 +216,16 @@ const FindKFC = () => {
     // setTimeout(()=>{
 
     // },1000)
-    const handleLocation = (el) => ( setTextL(el),setAddress(el) );
-    const findLocat =(event) => { event.preventDefault()};
+    const findLocat = (event) => {
+        event.preventDefault();
+        const searchLocation = textL.trim();
+        if (searchLocation) setAddress(searchLocation);
+    };
     const UseMyGeoLocation = () => { navigator.geolocation.getCurrentPosition(function (position) { out(position.coords.latitude, position.coords.longitude) }) };
+    const browseDirectory = () => {
+        setTextL("Pune");
+        setAddress("Pune");
+    };
 
     return (
         <FindSearchPartStyled>
@@ -229,8 +236,10 @@ const FindKFC = () => {
                     <p style={{ letterSpacing: "1px", fontFamily: "sans-serif,Roboto", fontWeight: "600", fontSize: "15px" }}>SEARCH BY CITY AND STATE OR ZIP CODE</p>
                     <div className='inputSearchForLocationDiv'>
                         <form onSubmit={findLocat} style={{display:"flex"}} >
-                            <input className='inputSearchForLocation' type="text" placeholder="Louisville, KY" onChange={(e) => handleLocation(e.target.value)} />
-                            <img className='inputSearchForLocationImg1' style={{ padding: "0vw 1vw", cursor: "pointer" }} src={search} onClick={()=>handleLocation} alt="" />
+                            <input className='inputSearchForLocation' type="text" placeholder="Louisville, KY" value={textL} onChange={(e) => setTextL(e.target.value)} />
+                            <button type="submit" aria-label="Search locations" style={{ padding: "0vw 1vw", border: 0, background: "transparent", cursor: "pointer" }}>
+                                <img className='inputSearchForLocationImg1' src={search} alt="" />
+                            </button>
                             <img className='inputSearchForLocationImg2' style={{ padding: "0vw 1vw", cursor: "pointer" }} src={setting} alt="" />
                         </form>
                     </div>
@@ -250,7 +259,7 @@ const FindKFC = () => {
                             </>
                         ) : (
                             <>
-                                Use our locator to find a location near you or <u className="browseOurDirectory1">browse our directory. </u>
+                                Use our locator to find a location near you or <u className="browseOurDirectory1" onClick={browseDirectory}>browse our directory. </u>
                             </>
                         )}
                     </div>

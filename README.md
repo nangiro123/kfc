@@ -38,6 +38,18 @@ ___
 * React Slick
 * Git
 
+### Run Locally
+___
+
+The React app uses the API at `http://localhost:8080` by default. Configure MongoDB and the JWT signing key before starting the backend:
+
+1. Copy `Backend/.env.example` to `Backend/.env` and set `DATABASE` to your MongoDB connection string and `SECRET_KEY` to a private random value.
+2. In one terminal, run `cd Backend` and then `npm install` and `npm run dev`.
+3. In a second terminal, run `cd frontend/kfc-app` and then `npm install` and `npm start`.
+4. Open `http://localhost:3000`.
+
+To use a different backend URL, copy `frontend/kfc-app/.env.example` to `frontend/kfc-app/.env.local`, update `REACT_APP_API_URL`, and restart the frontend.
+
 ### Features
 ___
 * Authentication

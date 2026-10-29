@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import api from "../utils/api";
+import { FiTag } from 'react-icons/fi';
 import "../pages/Cart.css"
 
 const RightSide = () => {
@@ -65,12 +66,9 @@ const RightSide = () => {
     <>
          <h2 className="reciept_heading">{cart.length} ITEMS</h2>
           <div className="offers_deals_container">
-            <img
-              src="https://online.kfc.co.in/static/media/Offers_Coupon_Icon.72b94c41.svg"
-              alt=""
-            />
+            <FiTag aria-hidden="true" />
             <span className="cart_offers_text">Apply Offers & Deals</span>
-            <button className="viewAll_button">View All</button>
+            <button className="viewAll_button" onClick={() => navigate("/menu")}>View All</button>
           </div>
           <div
             style={{

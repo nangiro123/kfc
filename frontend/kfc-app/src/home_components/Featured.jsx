@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import styles from "./HomeSlider.module.css";
 import SliderData from "../SliderData.json";
+import ImageWithFallback from "../utils/ImageWithFallback";
 
 export default class Featured extends React.Component {
   state = {
@@ -69,9 +70,9 @@ export default class Featured extends React.Component {
               style={{ outline: "none" }}
               key={Math.random() * 1000}
             >
-              <img
+              <ImageWithFallback
                 src={item.image}
-                alt={item.type}
+                alt={item.title}
                 className={styles.itemImg}
               />
               <p className={styles.itemTitle}>{item.title}</p>

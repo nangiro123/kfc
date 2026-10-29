@@ -263,7 +263,7 @@ export const FixedNavbar = () => {
           </div>
           <div className="toggleNavbar">
             <div className="toggleNavbar1">
-              <Link to={"#"}><img height={"15rem"} style={{ padding: "0.3vw 1vw" }} src={menuNav2} onClick={handleMenuOptions} alt="" /></Link>
+              <button type="button" aria-label="Open menu" onClick={handleMenuOptions} style={{ border: 0, background: "transparent", cursor: "pointer" }}><img height={"15rem"} style={{ padding: "0.3vw 1vw" }} src={menuNav2} alt="" /></button>
               <Link to={"/"}><img height={"21rem"} style={{ padding: "0.3vw 1vw" }} src={KFClogo} alt="" /></Link>
               <Link to={"/cart"}><img height={"20rem"} style={{ padding: "0.3vw 1vw" }} src={cart} alt="" /></Link>
             </div>
@@ -281,7 +281,7 @@ export const FixedNavbar = () => {
         <SmallNavMenuForNavbar>
           <div className="popupMenuOfNav">
             <div>
-            <img height={"25rem"} style={{ padding: "1.5vw 2vw", float:"left" }} onClick={()=>handleMenuOptionsClose()} src={cross} alt="" />
+            <button type="button" aria-label="Close menu" onClick={handleMenuOptionsClose} style={{ border: 0, background: "transparent", cursor: "pointer" }}><img height={"25rem"} style={{ padding: "1.5vw 2vw", float:"left" }} src={cross} alt="" /></button>
             </div>
             <div>
               <p style={{ letterSpacing: "1px", fontFamily: "fantasy", fontSize: "32px", textAlign:"left", padding:"20px 20px 10px 5vw" }}>LET'S GET COOKIN'</p>

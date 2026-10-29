@@ -7,6 +7,8 @@ import styles from "./item.module.css"
 import Reccom from './Reccom'
 import Beverages from "./Beverages"
 import { useNavigate } from 'react-router-dom'
+import { FiShoppingCart } from 'react-icons/fi';
+import ImageWithFallback from '../utils/ImageWithFallback';
 
 const SingleItem = ({_id,image,price,title,desc}) => {
 const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const navigate= useNavigate()
     <div className={styles.singleupperbox} >
 
     <div className={styles.mainsinglebox} >
-      <img src={image} alt="food" />
+      <ImageWithFallback src={image} alt={title} />
       <h2>{title}</h2>
       <p className={styles.singledesc} >{desc}</p>
       <p>Calories {Math.round(Math.random()*(2000-1000)+1000)}</p>
@@ -65,11 +67,12 @@ const navigate= useNavigate()
 
 
            </div>)} </h3>
-           <img 
+           <FiShoppingCart
           style={{cursor:"pointer"}}
+          aria-label="View cart"
           onClick={()=>{
             navigate("/cart")
-          }} src="https://online.kfc.co.in/static/media/Icon_Add_to_Cart.58b87a9b.svg"/>
+          }} />
         </div>
         <h1 className={styles.pepsi}>You can enjoy this delicious dish with </h1>
         <Beverages/>

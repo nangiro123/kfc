@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const ContactInfo = () => {
+  const navigate = useNavigate();
   return (
     <div className="delivery_info_container">
       <div style={{ display: "flex" }}>
         <div style={{ width: "40%" }}>
           <h3>CONTACT INFORMATION</h3>
-          <button className="sign_button_ellipse">Sign In</button>
+          <button className="sign_button_ellipse" onClick={() => navigate("/api/Auth/login")}>Sign In</button>
         </div>
         <div style={{width: "60%"}}>
           <form>

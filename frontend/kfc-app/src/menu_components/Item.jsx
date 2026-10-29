@@ -4,6 +4,8 @@ import api from '../utils/api'
 import { useDispatch, useSelector } from 'react-redux';
 import { addcart, addcartcount } from '../redux/action';
 import { useNavigate } from 'react-router-dom';
+import { FiShoppingCart } from 'react-icons/fi';
+import ImageWithFallback from '../utils/ImageWithFallback';
 
 const Item = ({_id,image,price,title,desc}) => {
     const [count,setCount]= useState(0)
@@ -12,7 +14,7 @@ const Item = ({_id,image,price,title,desc}) => {
     const dispatch = useDispatch();
   return (
     <div className={styles.innerbox} >
-      <img onClick={()=>{
+      <ImageWithFallback onClick={()=>{
         navigate(`/menu/${_id}`)
       }} src={image} alt="food" />
       <div>
@@ -64,11 +66,12 @@ const Item = ({_id,image,price,title,desc}) => {
 
 
            </div>)} </h3>
-          <img 
+          <FiShoppingCart
           style={{cursor:"pointer"}}
+          aria-label="View cart"
           onClick={()=>{
             navigate("/cart")
-          }} src="https://online.kfc.co.in/static/media/Icon_Add_to_Cart.58b87a9b.svg"/>
+          }} />
        </div>
       </div>
     </div>

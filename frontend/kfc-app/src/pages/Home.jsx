@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BsPlayFill, BsPauseFill, BsArrowRight } from "react-icons/bs";
@@ -9,6 +9,7 @@ import styles from "./Home.module.css";
 import QuickBites from "../home_components/QuickBites";
 import Favorites from "../home_components/Favorites";
 import Featured from "../home_components/Featured";
+import ImageWithFallback from "../utils/ImageWithFallback";
 
 const mainSlider = {
   infinite: true,
@@ -50,6 +51,7 @@ const mainSlider = {
 };
 
 const Home = () => {
+  const navigate = useNavigate();
   const sliderVid = React.useRef();
   const bannerVid = React.useRef();
   const modalVid = React.useRef();
@@ -108,7 +110,7 @@ const Home = () => {
                   </span>
                 </Link>
               </div>
-              <img
+              <ImageWithFallback
                 src="https://images.ctfassets.net/9tka4b3550oc/5feMdkX9xmGBVEE4TWoCVs/6daa55ed40b3d92d8639419970116fb2/JackHarlowMeal_Desktop_Home_Hero_1440x640_V1.jpg?q=75"
                 alt=""
               />
@@ -136,7 +138,7 @@ const Home = () => {
                   </span>
                 </Link>
               </div>
-              <img
+              <ImageWithFallback
                 src="https://images.ctfassets.net/9tka4b3550oc/7qmupuZfaFYb3uY93oPva9/71adcc3c74ed77d92aba39d31e9d4240/Side-Lovers.jpg?q=75&w=1680"
                 alt=""
               />
@@ -154,12 +156,12 @@ const Home = () => {
               <div className={styles.overlayContent} style={{ color: "black" }}>
                 <p>THE NEW KFC APP IS HERE</p>
                 <h2>HOME COOKIN' HAS A NEW HOME</h2>
-                <a href="/">
+                <Link to="/menu">
                   <span style={{ color: "black" }}>
-                    <span>Download</span>
+                    <span>Order Now</span>
                     <BsArrowRight />
                   </span>
-                </a>
+                </Link>
               </div>
               <video
                 src="https://videos.ctfassets.net/9tka4b3550oc/3eVt04hBZVfN6MVMzEv4Rt/26a3f084c23ab3484870f7d544550853/1920x1080_KFC_App-Hero-Asset_05.mp4?q=75&amp;w=100vw"
@@ -183,7 +185,7 @@ const Home = () => {
         <div className={styles.ctaPampletContainer}>
           <div className={styles.ctaPamplet}>
             <p>FINGER LICKIN' GOOD® IS NOW JUST A FEW CLICKS AWAY</p>
-            <button>Start Order</button>
+            <button onClick={() => navigate("/menu")}>Start Order</button>
           </div>
         </div>
 
@@ -252,14 +254,14 @@ const Home = () => {
             </div>
             <div className={styles.videoBanner}>
               <div className={styles.videoBanner__fig}>
-                <img
+                <ImageWithFallback
                   src="https://digitaleat.kfc.com/menus/image/bare/kfc-IndFries?q=75"
                   alt="KFC Fries"
                 />
               </div>
               <div className={styles.videoBanner__cta}>
                 <h2>Yep. We Have Fries Now.</h2>
-                <button>Start Your Order</button>
+                <button onClick={() => navigate("/menu")}>Start Your Order</button>
               </div>
             </div>
           </div>
@@ -287,17 +289,17 @@ const Home = () => {
             <p>OUR FOOD</p>
             <h2>We Make it the Hard Way</h2>
             <p>See what goes into making our world famous fried chicken.</p>
-            <button>Learn More</button>
+            <button onClick={() => navigate("/about")}>Learn More</button>
           </div>
           <div className={styles.bannerFigure}>
             <figure className={styles.bannerSeal}>
-              <img
+              <ImageWithFallback
                 src="https://images.ctfassets.net/9tka4b3550oc/pUxlFVRTxLtL5kOkls4oR/79e616624a7269fa05b88538b8d5f305/herbs-badge.png"
                 alt=""
               />
             </figure>
             <figure className={styles.bannerBucket}>
-              <img
+              <ImageWithFallback
                 src="https://images.ctfassets.net/9tka4b3550oc/1FQSRLVXt2Q1lvXXkOyW6U/f306561ef7bfc5ab7c84a739a46d3629/Food_09.png?q=75"
                 alt="Chicken Bucket"
               />
@@ -321,7 +323,7 @@ const Home = () => {
                 Create an account to get access to exclusive deals and faster
                 checkout.
               </p>
-              <button>Sign me up!</button>
+              <button onClick={() => navigate("/api/Auth/signup")}>Sign me up!</button>
             </div>
             <div className={styles.figure}>
               <figure>

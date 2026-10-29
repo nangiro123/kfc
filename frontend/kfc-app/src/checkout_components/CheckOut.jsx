@@ -4,6 +4,7 @@ import "./Checkout.css";
 import ContactInfo from "./ContactInfo";
 import DeliveryInfo from "./DeliveryInfo";
 import DeliveryOpt from "./DeliveryOpt";
+import { FiLock } from "react-icons/fi";
 
 const CheckOut = () => {
   return (
@@ -14,10 +15,7 @@ const CheckOut = () => {
       />
       <h1>CHECKOUT</h1>
       <div style={{  display: "flex", marginLeft: "40%", marginTop: "-20px" }}>
-        <img
-          src="https://online.kfc.co.in/static/media/Lock.e846db0a.svg"
-          alt=""
-        />
+        <FiLock aria-hidden="true" />
         <h4 style={{marginLeft: "10px"}}>Secure Checkout</h4>
       </div>
       <div style={{display:"flex"}} >

@@ -5,6 +5,7 @@ import api from "../utils/api"
 import { useDispatch, useSelector } from 'react-redux'
 import { addcartcount } from '../redux/action'
 import { useEffect } from 'react'
+import ImageWithFallback from '../utils/ImageWithFallback';
 
 const Cartproduct = ({desc,id,image,price,qty,title,_id, fetchData}) => {
 const dispatch= useDispatch();
@@ -21,7 +22,7 @@ const handleRemove = () =>{
   return (
     <div className={styles.cartproductmain} >
         <div className={styles.cartproductleft}>
-            <img src={image} alt="food" />
+            <ImageWithFallback src={image} alt={title} />
             <div>
                 <h3>{title}</h3>
                 <ul>

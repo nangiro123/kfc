@@ -1,6 +1,7 @@
 import api from '../utils/api';
 import React, { useEffect, useState } from 'react'
 import styles from "./item.module.css"
+import ImageWithFallback from '../utils/ImageWithFallback';
 
 
 
@@ -18,7 +19,7 @@ const Reccom = () => {
       <h2 className={styles.reccomtitle} >Reccomended Meals</h2> 
      {recom.map((el,index)=>{
       return <div key={index} className={styles.recombox} >
-              <div><img src={el.image} alt="" /></div>
+              <div><ImageWithFallback src={el.image} alt={el.title} /></div>
                <div>
                 <h3>{el.title}</h3>
                 <p>{el.desc}</p>

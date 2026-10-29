@@ -1,4 +1,5 @@
 import React from "react";
+import { FiClock, FiMapPin } from "react-icons/fi";
 import "./DeliverInfo.css";
 
 const DeliveryInfo = () => {
@@ -10,10 +11,7 @@ const DeliveryInfo = () => {
         </div>
         <div>
           <div style={{ display: "flex" }}>
-            <img
-              src="https://online.kfc.co.in/static/media/LocationOn.f57c1dfd.svg"
-              alt=""
-            />
+            <FiMapPin aria-hidden="true" />
             <p style={{ marginLeft: "20px" }}>KFC Delhi - CP1</p>
           </div>
           <p style={{ marginLeft: "20px", marginTop: "-10px"}}>New Delhi, Delhi 110001, India</p>
@@ -23,7 +21,7 @@ const DeliveryInfo = () => {
             placeholder="Appartment, suite, unit, building, floor"
           />
           <div style={{display: "flex"}}>
-            <img src="https://online.kfc.co.in/static/media/WatchLater.3ca73ea2.svg" alt="" />
+            <FiClock aria-hidden="true" />
             <h4 style={{marginLeft: "20px"}}>ASAP</h4>
           </div>
         </div>
